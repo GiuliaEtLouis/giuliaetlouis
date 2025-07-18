@@ -82,18 +82,18 @@
 
     <section id="reponse" class="section beige">
         <h2>Merci de nous confirmer votre présence</h2>
-        <form>
+        <form action="https://formspree.io/f/xjkokowp" method="POST">>
             <label for="nom">Nom</label>
-            <input type="text" id="nom" placeholder="Ajouter votre réponse ici">
+            <input type="text" id="nom" name="nom" required placeholder="Ajouter votre réponse ici">
 
             <label for="presence">Serez-vous présent ?</label>
-            <select id="presence">
+            <select id="presence" name="presence" required>
                 <option value="oui">Oui</option>
                 <option value="non">Non</option>
             </select>
 
             <label for="restrictions">Avez-vous des restrictions alimentaires ?</label>
-            <input type="text" id="restrictions" placeholder="Ajouter votre réponse ici">
+            <input type="text" id="restrictions" name="restrictions" placeholder="Ajouter votre réponse ici">
 
             <button type="submit" class="cta-button">Envoyer ma réponse</button>
         </form>
