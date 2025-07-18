@@ -288,17 +288,27 @@ button[type="submit"] {
 }
 
 @media (max-width: 768px) {
+  header {
+    padding: 0.3em 0.8em; /* Moins d'espace haut/bas */
+    height: 50px; /* Hauteur plus fine */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
   .burger {
     display: block;
     position: relative;
     margin-left: auto;
     z-index: 1001;
+    font-size: 1.5em; /* Un peu plus petit */
+    padding: 0.3em;
   }
 
   nav ul {
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 30px;
     left: 0;
     width: 100%;
     background-color: #fffaf4;
@@ -318,6 +328,8 @@ button[type="submit"] {
   nav a {
     width: 100%;
     text-align: center;
+    font-size: 0.9rem; /* Plus petit */
+    padding: 0.6em 1em;
   }
 
   nav a.cta-menu {
