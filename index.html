@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Lora&family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
+<script>
+document.getElementById("rsvp-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // Empêche la redirection
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      form.reset(); // Vide le formulaire
+      document.getElementById("confirmation-message").style.display = "block";
+    } else {
+      alert("Une erreur est survenue. Merci de réessayer.");
+    }
+  })
+  .catch(error => {
+    alert("Erreur réseau. Merci de réessayer plus tard.");
+  });
+});
+</script>
 <body>
 <header>
         <input type="checkbox" id="menu-toggle" />
@@ -97,6 +124,11 @@
 
             <button type="submit" class="cta-button">Envoyer ma réponse</button>
         </form>
+
+        <!-- Message de confirmation caché au départ -->
+        <p id="confirmation-message" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
+        Merci ! Votre réponse a bien été envoyée.
+        </p>
     </section>
 </body>
 </html>
