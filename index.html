@@ -118,7 +118,7 @@
 
 
     <script>
-        const apiUrl = "https://script.google.com/macros/s/AKfycbzBpcTrY5gXFhh6FcPG5Ab_borOptWM3mJUv9m-uO1tNptZuQvjhyUbyENsb5ThU-3O/exec";
+        const apiUrl = "https://script.google.com/macros/s/AKfycbzBpcTrY5gXFhh6FcPG5Ab_borOptWM3mJUv9m-uO1tNptZuQvjhyUbyENsb5ThU-3O/exec"; // à remplacer
 
         document.getElementById("rsvp-identification").addEventListener("submit", function(e) {
         e.preventDefault();
@@ -151,6 +151,13 @@
         e.preventDefault();
         const form = e.target;
         const data = new FormData(form);
+
+        console.log("Envoi des données :", {
+        prenom: data.get("prenom"),
+        nom: data.get("nom"),
+        presence: data.get("presence")
+        });
+
 
         fetch(form.action, {
             method: "POST",
