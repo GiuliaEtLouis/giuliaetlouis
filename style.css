@@ -384,6 +384,16 @@ button[type="submit"] {
 
   .cta-button {
     width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .cta-list {
+  width: fit-content;
+  margin: 0 auto;
+  display: block;
+  margin-top: 1.5em;
+  padding: 0.6em 1.4em; /* réduit la hauteur sans perdre la lisibilité */
   }
 
   form {
