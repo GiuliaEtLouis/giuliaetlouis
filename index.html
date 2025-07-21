@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giulia & Louis - Mariage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Lora&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="burger">&#9776;</label>
+
+        <nav class="menu">
+            <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#programme">Programme</a></li>
+            <li><a href="#infos">Informations pratiques</a></li>
+            <li><a href="#liste">Liste de mariage</a></li>
+            <li><a href="#reponse" class="cta-menu">Répondre</a></li>
+            </ul>
+        </nav>
+</header>
+
+
+    <section id="accueil" class="section beige">
+        <img src="images/image-test.png" alt="Photo panoramique de Giulia et Louis">
+        <h1>Giulia et Louis se marient le 4 juillet 2026</h1>
+    </section>
+
+    <section id="programme" class="section ivoire">
+        <h2>Nous avons hâte de vous retrouver</h2>
+        <div class="grid">
+            <a href="https://maps.google.com/?q=2+Pl.+Wilson,+87400+Saint-Léonard-de-Noblat" target="_blank" class="overlay-link">
+            <div class="box fond-ceremonie">
+                <div class="overlay-texte">
+                    <h3>10H : Cérémonie religieuse</h3>
+                    <p>La cérémonie religieuse aura lieu à la collégiale de Saint-Léonard de Noblat</p>
+                    <p>2 Pl. Wilson, 87400 Saint-Léonard-de-Noblat</p>
+                    <span class="arrow-icon">→</span>
+                </div>
+            </div>
+            </a>
+
+            <a href="https://www.google.com/maps?q=Château+de+Laplaud,+87520+Oradour-sur-Vayres" target="_blank" class="overlay-link">
+            <div class="box fond-reception">
+                <div class="overlay-texte">
+                    <h3>15H : Réception</h3>
+                    <p>Les festivités continueront au Château de Laplaud</p>
+                    <p>Laplaud, 87520 Oradour</p>
+                    <span class="arrow-icon">→</span>
+                </div>
+            </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="infos" class="section beige">
+        <h2>Quelques infos pratiques</h2>
+        <div class="grid">
+            <div class="box">
+                <h3>Accès</h3>
+                <p> <span class="highlight"> Concernant la cérémonie religieuse : </span> Plusieurs parkings et places gratuites sont accessibles à quelques dizaines de mètres de la collégiale.</p>
+                <p> <span class="highlight">Concernant la réception :</span> Un parking sera accessibel à tous au niveau du château </p>
+
+            </div>
+            <div class="box">
+                <h3>Hébergements</h3>
+                <p>Pour votre confort, plusieurs options d’hébergement sont disponibles à proximité du Château de Laplaud (environ 25 minutes de Limoges). Le château peut accueillir un nombre limité de convives (jusqu’à 30 personnes) dans ses chambres sur place. Pour les autres invités, nous vous recommandons les hôtels et chambres d’hôtes situés à Oradour, Nieul, Saint-Junien ou Limoges. Une navette pourra être mise en place si besoin pour faciliter les trajets entre certains hébergements et le lieu de réception.</p>
+            </div>
+            <div class="box">
+                <h3>Contacts</h3>
+                <p>Pour toute question et information complémentaire, vous pouvez nous contacter au ​​+33 6 99 75 89 97</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="liste" class="section ivoire">
+        <h2>Votre présence est déjà un cadeau…</h2>
+        <p>Nous sommes très touchés que vous partagiez avec nous ce moment si important de notre vie. Votre présence à nos côtés, vos sourires et votre affection sont ce que nous attendons le plus. Pour ceux qui souhaitent, nous avons également mis en place une liste de mariage. Il n’y a bien sûr aucune obligation !</p>
+        <a href="#" class="cta-button cta-list">Voir la liste</a>
+    </section>
+
+    <section id="reponse" class="section beige">
+        <h2>Merci de nous confirmer votre présence</h2>
+
+        <form id="rsvp-identification">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required>
+
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <button type="submit" class="cta-button">Continuer</button>
+        </form>
+
+        <div id="invitation-details" style="display: none;">
+            <p id="invitation-type"></p>
+            <form id="rsvp-complet" method="POST" action="https://script.google.com/macros/s/AKfycbzBpcTrY5gXFhh6FcPG5Ab_borOptWM3mJUv9m-uO1tNptZuQvjhyUbyENsb5ThU-3O/exec">
+            <input type="hidden" name="prenom">
+            <input type="hidden" name="nom">
+
+            <label for="presence">Serez-vous présent ?</label>
+            <select id="presence" name="presence" required>
+                <option value="" disabled selected hidden>Choisissez une option</option>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+
+            <label for="restrictions">Avez-vous des restrictions alimentaires ?</label>
+            <input type="text" id="restrictions" name="restrictions">
+
+            <button type="submit" class="cta-button">Envoyer ma réponse</button>
+            </form>
+            <p id="confirmation-message" style="display: none; color: green; font-weight: bold; margin-top: 1em;"> Merci ! Votre réponse a bien été enregistrée.</p>
+        </div>
+    </section>
+
+
+    <script>
+        const token = "FbbGshjyq8wpmvi2o87";
+        const apiUrl = "https://script.google.com/macros/s/AKfycbzBpcTrY5gXFhh6FcPG5Ab_borOptWM3mJUv9m-uO1tNptZuQvjhyUbyENsb5ThU-3O/exec";
+
+        document.getElementById("rsvp-identification").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const prenom = document.getElementById("prenom").value.trim();
+        const nom = document.getElementById("nom").value.trim();
+
+        fetch(`${apiUrl}?prenom=${encodeURIComponent(prenom)}&nom=${encodeURIComponent(nom)}&token=${token}`)
+            .then(res => res.json())
+            .then(data => {
+            if (data.invitation) {
+                document.getElementById("invitation-type").textContent = 
+                `Vous êtes invité à : ${data.invitation}`;
+
+                // Pré-remplit les champs cachés
+                document.querySelector('#rsvp-complet input[name="prenom"]').value = prenom;
+                document.querySelector('#rsvp-complet input[name="nom"]').value = nom;
+
+                document.getElementById("rsvp-identification").style.display = "none";
+                document.getElementById("invitation-details").style.display = "block";
+            } else {
+                alert("Aucune invitation trouvée. Merci de vérifier l’orthographe.");
+            }
+            })
+            .catch(() => alert("Erreur de connexion."));
+        });
+
+        // Formulaire de soumission finale
+        document.getElementById("rsvp-complet").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = new FormData(form);
+
+        console.log("Envoi des données :", {
+        prenom: data.get("prenom"),
+        nom: data.get("nom"),
+        presence: data.get("presence")
+        });
+
+        form.action = `${apiUrl}?token=${token}`;
+
+        fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { "Accept": "application/json" }
+        })
+
+        .then(res => {
+            if (res.ok) {
+            form.reset();
+            form.querySelector("#presence").value = "";
+            document.getElementById("confirmation-message").style.display = "block";
+            } else {
+            alert("Erreur d’envoi.");
+            }
+        });
+        });
+    </script>
+
+</body>
+</html>

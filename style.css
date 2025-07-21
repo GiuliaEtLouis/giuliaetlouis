@@ -1,0 +1,407 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Lora', serif;
+  color: #2c2c2c;
+  background-color: #fff;
+}
+
+header {
+  background: #fffaf4;
+  padding: 1em 2em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #fffaf4;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.burger {
+  font-size: 2em;
+  cursor: pointer;
+  display: none;
+  padding: 1em;
+  user-select: none;
+  background: none;
+  border: none;
+  color: #2c2c2c;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #6d4c41;
+  font-family: 'Playfair Display', serif;
+  transition: color 0.3s;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1em;
+}
+
+nav a:hover {
+  color: #b48a78;
+  text-decoration: underline;
+}
+
+nav a.cta-menu {
+  background-color: #A08B76;
+  color: white !important;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+nav a.cta-menu:hover {
+  background-color: #3A2F28;
+}
+
+.section {
+  padding: 4em 2em;
+  text-align: center;
+}
+
+.beige {
+  background-color: #e5dbd4;
+}
+
+.ivoire {
+  background-color: #fffaf4;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.grid {
+  display: grid;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 2em;
+}
+
+.box {
+  background: #FDF6F1;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.box p + p {
+  margin-top: 1em;
+}
+
+.highlight {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.box.fond-ceremonie, .box.fond-reception {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.fond-ceremonie {
+  background-image: url(images/collegiale.jpg);
+}
+
+.fond-reception {
+  background-image: url(images/chateau_laplaud.jpeg);
+}
+
+.overlay-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer
+}
+
+.overlay-texte {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2em;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 90%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overlay-link:hover .overlay-texte,
+.overlay-link:active .overlay-texte {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.overlay-texte p:first-of-type {
+  margin-bottom: 0.8em;
+}
+
+.arrow-icon {
+  display: inline-block;
+  font-size: 1.2em;
+  margin-top: 1em;
+  opacity: 0.5;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.overlay-link:hover .arrow-icon,
+.overlay-link:active .arrow-icon {
+  transform: translateX(4px);
+  opacity: 0.9;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 2em;
+  padding: 1em 2em;
+  background-color: #A08B76;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #3A2F28;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  text-align: left;
+}
+
+form label {
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+}
+
+form input,
+form select {
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  align-self: center;
+  width: fit-content;
+  padding: 0.75em 2em;
+}
+
+#accueil {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#accueil img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+#accueil h1 {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 250, 244, 0.85);
+  padding: 1em 2em;
+  border-radius: 12px;
+  max-width: 90%;
+  font-size: 2.2em;
+  color: #6d4c41;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 1.5s ease-out 1s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#confirmation-message {
+  display: none;
+  margin-top: 1em;
+  color: green;
+  font-weight: bold;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+@media (max-width: 768px) {
+  header {
+    padding: 0.3em 0.8em; /* Moins d'espace haut/bas */
+    height: 50px; /* Hauteur plus fine */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .burger {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    z-index: 1001;
+    font-size: 1.5em; /* Un peu plus petit */
+    padding: 0.3em;
+  }
+
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    background-color: #fffaf4;
+    padding: 1em 0;
+    display: none;
+    z-index: 1000;
+  }
+
+  #menu-toggle:checked + .burger + nav ul {
+    display: flex;
+  }
+
+  nav ul li {
+    justify-content: center;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem; /* Plus petit */
+    padding: 0.6em 1em;
+  }
+
+  nav a.cta-menu {
+    margin-top: 0.5em;
+    width: calc(100% - 2em);
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  .section {
+    padding: 3em 1.5em;
+  }
+
+  .cta-button {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .cta-list {
+  width: fit-content;
+  margin: 0 auto;
+  display: block;
+  margin-top: 1.5em;
+  padding: 0.6em 1.4em; /* réduit la hauteur sans perdre la lisibilité */
+  }
+
+  form {
+    padding: 0 1em;
+  }
+
+  #accueil h1 {
+    font-size: 1.5em;
+    padding: 1em;
+  }
+}
