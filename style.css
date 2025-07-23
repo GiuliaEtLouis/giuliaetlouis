@@ -139,7 +139,7 @@ h3 {
   text-decoration: underline;
 }
 
-.box.fond-ceremonie, .box.fond-reception {
+.box.fond-ceremonie, .box.fond-reception, .box.fond-brunch {
   background-size: cover;
   background-position: center;
   position: relative;
@@ -159,6 +159,10 @@ h3 {
 
 .fond-reception {
   background-image: url(images/chateau_laplaud.jpeg);
+}
+
+.fond-brunch {
+  background-image: url(images/brunch.jpg);
 }
 
 .overlay-link {
@@ -255,15 +259,6 @@ button[type="submit"] {
   padding: 0.75em 2em;
 }
 
-#accueil {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #accueil img {
   position: absolute;
   top: 0;
@@ -276,19 +271,30 @@ button[type="submit"] {
   animation: fadeIn 2s ease-in-out forwards;
 }
 
+#accueil {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* aligné à gauche */
+  padding-left: 5%; /* espace depuis le bord gauche */
+}
+
 #accueil h1 {
   position: relative;
   z-index: 1;
   background-color: rgba(255, 250, 244, 0.85);
-  padding: 1em 2em;
+  padding: 1.2em 1.5em;
   border-radius: 12px;
-  max-width: 90%;
-  font-size: 2.2em;
+  font-size: 2em;
   color: #6d4c41;
-  text-align: center;
+  text-align: left;
   opacity: 0;
   transform: translateY(20px);
   animation: slideIn 1.5s ease-out 1s forwards;
+  max-width: 360px; /* plus étroit */
+  line-height: 1.4;
 }
 
 @keyframes fadeIn {
@@ -400,8 +406,13 @@ button[type="submit"] {
     padding: 0 1em;
   }
 
+   #accueil {
+  justify-content: center; /* centré sur mobile */
+  padding-left: 0;
+  }
+
   #accueil h1 {
-    font-size: 1.5em;
-    padding: 1em;
+  text-align: center;
+  margin: 0 auto;
   }
 }
