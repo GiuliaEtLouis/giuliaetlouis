@@ -312,6 +312,17 @@ button[type="submit"] {
   }
 }
 
+.invitation-message {
+  font-size: 1.2em;
+  margin-bottom: 2em;
+  text-align: center;
+  color: #3a2f28;
+  background-color: #fdf6f1;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
 #confirmation-message {
   display: none;
   margin-top: 1em;
