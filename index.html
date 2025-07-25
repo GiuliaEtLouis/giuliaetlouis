@@ -98,7 +98,7 @@
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom" required>
 
-            <button type="submit" class="cta-button">Continuer</button>
+            <button type="submit" id="submit-btn" class="cta-button">Continuer</button>
         </form>
 
         <div id="invitation-details" style="display: none;">
@@ -129,14 +129,18 @@
         const apiUrl = "https://script.google.com/macros/s/AKfycbzBpcTrY5gXFhh6FcPG5Ab_borOptWM3mJUv9m-uO1tNptZuQvjhyUbyENsb5ThU-3O/exec";
 
         document.getElementById("rsvp-identification").addEventListener("submit", function(e) {
-        e.preventDefault();
+    e.preventDefault();
 
-        const prenom = document.getElementById("prenom").value.trim();
-        const nom = document.getElementById("nom").value.trim();
+    const prenom = document.getElementById("prenom").value.trim();
+    const nom = document.getElementById("nom").value.trim();
 
-        fetch(`${apiUrl}?prenom=${encodeURIComponent(prenom)}&nom=${encodeURIComponent(nom)}&token=${token}`)
-            .then(res => res.json())
-            .then(data => {
+    const submitBtn = document.getElementById("submit-btn");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Envoi en cours...";
+
+    fetch(`${apiUrl}?prenom=${encodeURIComponent(prenom)}&nom=${encodeURIComponent(nom)}&token=${token}`)
+        .then(res => res.json())
+        .then(data => {
             if (data.invitation) {
                 document.getElementById("invitation-type").textContent = 
                 `Nous avons le plaisir de vous inviter : ${data.invitation}`;
@@ -150,9 +154,17 @@
             } else {
                 alert("Aucune invitation trouvée. Merci de vérifier l’orthographe.");
             }
-            })
-            .catch(() => alert("Erreur de connexion."));
+
+            // Réactive le bouton dans tous les cas
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Continuer";
+        })
+        .catch(() => {
+            alert("Erreur de connexion.");
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Continuer";
         });
+});
 
         // Formulaire de soumission finale
         document.getElementById("rsvp-complet").addEventListener("submit", function(e) {
