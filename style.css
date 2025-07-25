@@ -291,7 +291,7 @@ button[type="submit"] {
   color: #6d4c41;
   text-align: left;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateX(-30px);
   animation: slideIn 1.5s ease-out 1s forwards;
   max-width: 360px; /* plus étroit */
   line-height: 1.4;
@@ -302,9 +302,13 @@ button[type="submit"] {
 }
 
 @keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
