@@ -136,7 +136,7 @@
 
     const submitBtn = document.getElementById("submit-btn");
     submitBtn.disabled = true;
-    submitBtn.textContent = "Envoi en cours...";
+    submitBtn.textContent = "Recherche en cours...";
 
     fetch(`${apiUrl}?prenom=${encodeURIComponent(prenom)}&nom=${encodeURIComponent(nom)}&token=${token}`)
         .then(res => res.json())
