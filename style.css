@@ -313,7 +313,7 @@ button[type="submit"] {
 }
 
 .invitation-message {
-  background-image: url("images/collegiale.jpg"); /* adapte le chemin si besoin */
+  background-image: url("images/fond_fleurs_1.jpg"); /* adapte le chemin si besoin */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
