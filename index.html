@@ -139,31 +139,50 @@
     submitBtn.textContent = "Recherche en cours...";
 
     fetch(`${apiUrl}?prenom=${encodeURIComponent(prenom)}&nom=${encodeURIComponent(nom)}&token=${token}`)
-        .then(res => res.json())
-        .then(data => {
-            if (data.invitation) {
-                document.getElementById("invitation-type").textContent = 
-                `Nous avons le plaisir de vous inviter : ${data.invitation}`;
+    .then(res => res.json())
+    .then(data => {
+        if (data.invitation) {
+            let messageInvitation = '';
 
-                // Pré-remplit les champs cachés
-                document.querySelector('#rsvp-complet input[name="prenom"]').value = prenom;
-                document.querySelector('#rsvp-complet input[name="nom"]').value = nom;
-
-                document.getElementById("rsvp-identification").style.display = "none";
-                document.getElementById("invitation-details").style.display = "block";
-            } else {
-                alert("Aucune invitation trouvée. Merci de vérifier l’orthographe.");
+            switch(data.invitation) {
+                case 'Festivités':
+                    messageInvitation = 'Vous êtes invité(e) aux festivités. Nous avons hâte de vous voir !';
+                    break;
+                case 'Vin d’honneur':
+                    messageInvitation = 'Invitation au vin d’honneur uniquement. À bientôt !';
+                    break;
+                case 'Brunch':
+                    messageInvitation = 'Nous vous attendons pour le brunch convivial.';
+                    break;
+                case 'Secret party':
+                    messageInvitation = 'Invitation spéciale pour la Secret party. Surprise garantie !';
+                    break;
+                default:
+                    messageInvitation = `Nous avons le plaisir de vous inviter : ${data.invitation}`;
             }
 
-            // Réactive le bouton dans tous les cas
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Continuer";
-        })
-        .catch(() => {
-            alert("Erreur de connexion.");
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Continuer";
-        });
+            document.getElementById("invitation-type").textContent = messageInvitation;
+
+            // Pré-remplit les champs cachés
+            document.querySelector('#rsvp-complet input[name="prenom"]').value = prenom;
+            document.querySelector('#rsvp-complet input[name="nom"]').value = nom;
+
+            document.getElementById("rsvp-identification").style.display = "none";
+            document.getElementById("invitation-details").style.display = "block";
+        } else {
+            alert("Aucune invitation trouvée. Merci de vérifier l’orthographe.");
+        }
+
+        // Réactive le bouton dans tous les cas
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Continuer";
+    })
+    .catch(() => {
+        alert("Erreur de connexion.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Continuer";
+    });
+
 });
 
         // Formulaire de soumission finale
