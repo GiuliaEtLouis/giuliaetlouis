@@ -30,7 +30,7 @@
     </section>
 
     <section id="programme" class="section ivoire">
-        <h2>Nous avons hâte de vous retrouver</h2>
+        <h2>Nous avons hâte de vous retrouver, le programme :</h2>
         <div class="grid">
             <a href="https://maps.google.com/?q=2+Pl.+Wilson,+87400+Saint-Léonard-de-Noblat" target="_blank" class="overlay-link">
             <div class="box fond-ceremonie">
@@ -55,7 +55,7 @@
             <div class="box fond-brunch">
                 <div class="overlay-texte">
                     <h3>Dimanche 5 juillet</h3>
-                    <p>Brunch et piscine au Chateau de Laplaud</p>
+                    <p>Brunch (de 11h à 14h) et piscine au Chateau de Laplaud </p>
                 </div>
             </div>
           
@@ -67,26 +67,33 @@
         <div class="grid">
             <div class="box">
                 <h3>Accès</h3>
-                <p> <span class="highlight"> Concernant la cérémonie religieuse : </span> Plusieurs parkings et places gratuites sont accessibles à quelques dizaines de mètres de la collégiale.</p>
-                <p> <span class="highlight">Concernant la réception :</span> Un parking sera accessibel à tous au niveau du château </p>
+                <p> <span class="highlight"> Concernant la cérémonie religieuse :</span> la Collégiale se situe en plein cœur du centre-ville. Le parking de la Place Gay Lussac est situé aux abords de la Collégiale. Toutefois celui-ci est limité en place ; il est également possible de se garer sur la Place du Champ de Mars ou sur la Place de la Libération.</p>
+                <p> <span class="highlight">Concernant la réception :</span> le Château se situe à environ 45 minutes de Saint-Léonard-de-Noblat et dispose de son propre parking. A l’issue des festivités, des navettes seront à votre disposition à destination de Limoges.</p>
 
             </div>
             <div class="box">
                 <h3>Hébergements</h3>
-                <p>Pour votre confort, plusieurs options d’hébergement sont disponibles à proximité du Château de Laplaud (environ 25 minutes de Limoges). Le château peut accueillir un nombre limité de convives (jusqu’à 30 personnes) dans ses chambres sur place. Pour les autres invités, nous vous recommandons les hôtels et chambres d’hôtes situés à Oradour, Nieul, Saint-Junien ou Limoges. Une navette pourra être mise en place si besoin pour faciliter les trajets entre certains hébergements et le lieu de réception.</p>
+                <p>Plusieurs hôtels pourront vous accueillir à Limoges (situé à environ 20 minutes du Château). Le propriétaire du Château dispose également d’hôtels de charme offrant plus de confort en centre-ville de Limoges : la Maison Blanche et la Villa Beaupeyrat.</p>
             </div>
             <div class="box">
                 <h3>Contacts</h3>
-                <p>Pour toute question et information complémentaire, vous pouvez nous contacter au ​​+33 6 99 75 89 97</p>
+                <p>Pour toute question et information complémentaire, vous pouvez nous contacter sur nos numéros :</p>
+                   <br><ul>
+                        <li>Giulia : 06 68 24 16 27</li>
+                        <li>Louis : 06 99 75 89 97</li>
+                    </ul>
+
             </div>
         </div>
     </section>
 
     <section id="liste" class="section ivoire">
-        <h2>Votre présence est déjà un cadeau…</h2>
+        <h2>Votre présence est déjà un cadeau 😉 … </h2>
         <p>Nous sommes très touchés que vous partagiez avec nous ce moment si important de notre vie. Votre présence à nos côtés, vos sourires et votre affection sont ce que nous attendons le plus. Pour ceux qui souhaitent, nous avons également mis en place une liste de mariage. Il n’y a bien sûr aucune obligation !</p>
         <a href="#" class="cta-button cta-list">Voir la liste</a>
     </section>
+
+    <!-- Formulaire -->
 
     <section id="reponse" class="section beige">
         <h2>Merci de nous confirmer votre présence</h2>
@@ -146,16 +153,16 @@
 
             switch(data.invitation) {
                 case 'Festivités':
-                    messageInvitation = 'Vous êtes invité(e) aux festivités. Nous avons hâte de vous voir !';
+                    messageInvitation = 'à l’issue de la Cérémonie religieuse, nous avons le plaisir de vous inviter au Vin d’honneur (à partir de 18h) au Château de Laplaud, ainsi qu’aux festivités qui suivront.';
                     break;
                 case 'Vin d’honneur':
-                    messageInvitation = 'Invitation au vin d’honneur uniquement. À bientôt !';
+                    messageInvitation = 'à l’issue de la Cérémonie religieuse, nous avons le plaisir de vous inviter au Vin d’honneur (à partir de 18h) au Château de Laplaud.';
                     break;
                 case 'Brunch':
-                    messageInvitation = 'Nous vous attendons pour le brunch convivial.';
+                    messageInvitation = 'à l’issue de la Cérémonie religieuse, nous avons le plaisir de vous inviter au Vin d’honneur, aux festivités qui suivront et au brunch du lendemain (à partir de 11h) au Château de Laplaud.';
                     break;
                 case 'Secret party':
-                    messageInvitation = 'Invitation spéciale pour la Secret party. Surprise garantie !';
+                    messageInvitation = 'à l’issue de la Cérémonie religieuse, nous avons le plaisir de vous inviter au Vin d’honneur, aux festivités qui suivront et au brunch du lendemain (à partir de 11h) au Château de Laplaud. Attention - Secret party : nous ne rendons le Château que lundi dans la matinée et serions ravis de débriefer de ce moment et de trinquer avec vous (avec un peu plus de sérénité et moins de monde) dimanche soir.';
                     break;
                 default:
                     messageInvitation = `Nous avons le plaisir de vous inviter : ${data.invitation}`;
