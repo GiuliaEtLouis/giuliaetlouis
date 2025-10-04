@@ -153,22 +153,22 @@
 
             switch(data.invitation) {
                 case 'Festivités':
-                    messageInvitation = 'à l’issue de la Cérémonie religieuse, nous avons le plaisir de vous inviter au Vin d’honneur (à partir de 18h) au Château de Laplaud, ainsi qu’aux festivités qui suivront.';
+                    messageInvitation = 'À l’issue de la Cérémonie religieuse,<br> nous avons le plaisir de vous inviter au Vin d’honneur (à partir de 18h)<br> au Château de Laplaud, ainsi qu’aux festivités qui suivront.';
                     break;
                 case 'Vin d’honneur':
-                    messageInvitation = 'à l’issue de la Cérémonie religieuse, nous avons le plaisir de vous inviter au Vin d’honneur (à partir de 18h) au Château de Laplaud.';
+                    messageInvitation = 'À l’issue de la Cérémonie religieuse,<br> nous avons le plaisir de vous inviter au Vin d’honneur (à partir de 18h)<br> au Château de Laplaud.';
                     break;
                 case 'Brunch':
-                    messageInvitation = 'à l’issue de la Cérémonie religieuse, nous avons le plaisir de vous inviter au Vin d’honneur, aux festivités qui suivront et au brunch du lendemain (à partir de 11h) au Château de Laplaud.';
+                    messageInvitation = 'À l’issue de la Cérémonie religieuse,<br> nous avons le plaisir de vous inviter au Vin d’honneur,<br> aux festivités qui suivront et au brunch du lendemain (à partir de 11h)<br> au Château de Laplaud.';
                     break;
                 case 'Secret party':
-                    messageInvitation = 'à l’issue de la Cérémonie religieuse, nous avons le plaisir de vous inviter au Vin d’honneur, aux festivités qui suivront et au brunch du lendemain (à partir de 11h) au Château de Laplaud. Attention - Secret party : nous ne rendons le Château que lundi dans la matinée et serions ravis de débriefer de ce moment et de trinquer avec vous (avec un peu plus de sérénité et moins de monde) dimanche soir.';
+                    messageInvitation = 'À l’issue de la Cérémonie religieuse,<br> nous avons le plaisir de vous inviter au Vin d’honneur,<br> aux festivités qui suivront et au brunch du lendemain (à partir de 11h)<br> au Château de Laplaud. <br><br> Attention - Secret party : <br>nous ne rendons le Château que lundi dans la matinée<br> et serions ravis de débriefer de ce moment et de trinquer avec vous<br> (avec un peu plus de sérénité et moins de monde) dimanche soir.';
                     break;
                 default:
                     messageInvitation = `Nous avons le plaisir de vous inviter : ${data.invitation}`;
             }
 
-            document.getElementById("invitation-type").textContent = messageInvitation;
+            document.getElementById("invitation-type").innerHTML = messageInvitation;
 
             // Pré-remplit les champs cachés
             document.querySelector('#rsvp-complet input[name="prenom"]').value = prenom;
