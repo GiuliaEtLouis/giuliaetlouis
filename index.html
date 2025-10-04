@@ -199,19 +199,16 @@
         document.getElementById("rsvp-complet").addEventListener("submit", function(e) {
     e.preventDefault();
     const form = e.target;
+
+    // 🔹 D'abord, définir la bonne URL avec le token
+    form.action = `${apiUrl}?token=${token}`;
+
+    // 🔹 Ensuite, créer le FormData (après mise à jour de l'action)
     const data = new FormData(form);
 
     const submitButton = form.querySelector("button[type='submit']");
     submitButton.disabled = true;
     submitButton.textContent = "Envoi en cours...";
-
-    console.log("Envoi des données :", {
-        prenom: data.get("prenom"),
-        nom: data.get("nom"),
-        presence: data.get("presence")
-    });
-
-    form.action = `${apiUrl}?token=${token}`;
 
     fetch(form.action, {
         method: "POST",
@@ -221,7 +218,6 @@
     .then(res => {
         if (res.ok) {
             form.reset();
-            form.querySelector("#presence").value = "";
             document.getElementById("confirmation-message").style.display = "block";
         } else {
             alert("Erreur d’envoi.");
@@ -235,6 +231,7 @@
         submitButton.textContent = "Envoyer ma réponse";
     });
 });
+
 
     </script>
 
