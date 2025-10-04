@@ -197,34 +197,45 @@
 
         // Formulaire de soumission finale
         document.getElementById("rsvp-complet").addEventListener("submit", function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const data = new FormData(form);
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
 
-        console.log("Envoi des données :", {
+    const submitButton = form.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    submitButton.textContent = "Envoi en cours...";
+
+    console.log("Envoi des données :", {
         prenom: data.get("prenom"),
         nom: data.get("nom"),
         presence: data.get("presence")
-        });
+    });
 
-        form.action = `${apiUrl}?token=${token}`;
+    form.action = `${apiUrl}?token=${token}`;
 
-        fetch(form.action, {
+    fetch(form.action, {
         method: "POST",
         body: data,
         headers: { "Accept": "application/json" }
-        })
-
-        .then(res => {
-            if (res.ok) {
+    })
+    .then(res => {
+        if (res.ok) {
             form.reset();
             form.querySelector("#presence").value = "";
             document.getElementById("confirmation-message").style.display = "block";
-            } else {
+        } else {
             alert("Erreur d’envoi.");
-            }
-        });
-        });
+        }
+    })
+    .catch(() => {
+        alert("Erreur d’envoi.");
+    })
+    .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = "Envoyer ma réponse";
+    });
+});
+
     </script>
 
 </body>
