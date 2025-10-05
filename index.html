@@ -206,6 +206,8 @@
     // 🔹 Ensuite, créer le FormData (après mise à jour de l'action)
     const data = new FormData(form);
 
+    console.log(Object.fromEntries(data.entries()));
+
     const submitButton = form.querySelector("button[type='submit']");
     submitButton.disabled = true;
     submitButton.textContent = "Envoi en cours...";
