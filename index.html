@@ -233,9 +233,19 @@
         submitButton.textContent = "Envoyer ma réponse";
     });
 });
-
-
     </script>
+
+    <script>
+  // Corrige le décalage des champs sur mobile quand le clavier s'affiche
+  document.querySelectorAll('input, select, textarea').forEach(el => {
+    el.addEventListener('focus', () => {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300); // petit délai pour laisser le clavier s'ouvrir
+    });
+  });
+</script>
+
 
 </body>
 </html>
